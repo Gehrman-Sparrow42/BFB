@@ -8,8 +8,8 @@ file and use File > Upload notebook. Now that it is on GitHub, Colab can open a
 notebook straight from the repository, which removes the step where a student
 ends up editing a stale copy from their Downloads folder.
 
-    python3 tools/add_colab_badges.py --repo YOUR_GITHUB_ACCOUNT/BFB
-    python3 tools/add_colab_badges.py --repo YOUR_GITHUB_ACCOUNT/BFB --check
+    python3 tools/add_colab_badges.py --repo BMGLab/BFB
+    python3 tools/add_colab_badges.py --repo BMGLab/BFB --check   # report only
 
 Re-running is safe: an existing badge is replaced rather than duplicated, so
 this can be run again if the repository ever moves.
@@ -41,7 +41,7 @@ def as_lines(text):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--repo", required=True, help="owner/name of the published repository")
+    ap.add_argument("--repo", required=True, help="owner/name, e.g. BMGLab/BFB")
     ap.add_argument("--branch", default="main")
     ap.add_argument("--check", action="store_true", help="report without writing")
     args = ap.parse_args()
